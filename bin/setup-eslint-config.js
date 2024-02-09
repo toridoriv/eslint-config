@@ -5,10 +5,11 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import JSONC from "jsonc-simple-parser";
 import vscodeSettings from "../lib/vscode/settings.js";
 
+const userPath = process.env.INIT_CWD;
 const require = createRequire(import.meta.url);
 const libraryPackageJson = require("../package.json");
-const projectPackageJson = JSON.parse(tryReadFile("./package.json"));
-const rawProjectVscode = tryReadFile("./.vscode/settings.json");
+const projectPackageJson = JSON.parse(tryReadFile(`${userPath}/package.json`));
+const rawProjectVscode = tryReadFile(`${userPath}/.vscode/settings.json`);
 const projectVscode = rawProjectVscode === "" ? {} : JSONC.parse(rawProjectVscode);
 const separator = "";
 
@@ -34,8 +35,8 @@ function writeConfigFiles() {
     `export default [...eslintConfig.javascript.node];`,
   ].join("\n");
 
-  writeFileSync("eslint.config.js", eslint, "utf-8");
-  writeFileSync("prettier.config.js", prettier, "utf-8");
+  writeFileSync(userPath + "/eslint.config.js", eslint, "utf-8");
+  writeFileSync(userPath + "/prettier.config.js", prettier, "utf-8");
 }
 
 /**
@@ -53,11 +54,15 @@ function updateVscodeSettings() {
     delete config["eslint.useESLintClass"];
   }
 
-  if (!existsSync("./.vscode")) {
-    mkdirSync("./.vscode", { recursive: true });
+  if (!existsSync(`${userPath}/.vscode`)) {
+    mkdirSync(`${userPath}/.vscode`, { recursive: true });
   }
 
-  writeFileSync("./.vscode/settings.json", JSON.stringify(config, null, 2), "utf-8");
+  writeFileSync(
+    `${userPath}/.vscode/settings.json`,
+    JSON.stringify(config, null, 2),
+    "utf-8",
+  );
 }
 
 /**
@@ -104,8 +109,8 @@ function createIgnoreFiles() {
 
   const content = lines.join("\n");
 
-  writeFileSync("./.gitignore", content, "utf-8");
-  writeFileSync("./.prettierignore", content, "utf-8");
+  writeFileSync(`${userPath}/.gitignore`, content, "utf-8");
+  writeFileSync(`${userPath}/.prettierignore`, content, "utf-8");
 }
 
 /**

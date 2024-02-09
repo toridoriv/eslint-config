@@ -2,8 +2,6 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
-import { stdin as input, stdout as output } from "node:process";
-import * as readline from "node:readline/promises";
 
 import JSONC from "jsonc-simple-parser";
 
@@ -18,14 +16,10 @@ const rawProjectVscode = tryReadFile(`${userPath}/.vscode/settings.json`);
 const projectVscode = rawProjectVscode === "" ? {} : JSONC.parse(rawProjectVscode);
 const separator = "";
 
-if (await confirm()) {
-  console.info("Creating config files...");
-  createIgnoreFiles();
-  writeConfigFiles();
-  updateVscodeSettings();
-} else {
-  console.info("Skipping config files...");
-}
+console.info("Creating config files...");
+createIgnoreFiles();
+writeConfigFiles();
+updateVscodeSettings();
 
 /**
  * Writes the ESLint and Prettier config files for the project.
@@ -175,16 +169,4 @@ function tryReadFile(path) {
   } catch {
     return "";
   }
-}
-
-async function confirm() {
-  const rl = readline.createInterface({ input, output });
-
-  const answer = await rl.question(
-    "Do you want to create the initial configuration files? Y/N",
-  );
-
-  rl.close();
-
-  return answer.toUpperCase() === "Y";
 }

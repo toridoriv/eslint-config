@@ -1,23 +1,18 @@
 {
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  "[javascript][json][jsonc][markdown][typescript]": {
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
   },
-  "[json]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
-  "editor.formatOnSave": true,
   "eslint.enable": true,
   "eslint.experimental.useFlatConfig": true,
   "eslint.format.enable": true,
-  "eslint.runtime": "node",
   "eslint.onIgnoredFiles": "warn",
-  "eslint.validate": ["json", "jsonc", "javascript", "typescript"],
-  "typescript.disableAutomaticTypeAcquisition": true
+  "eslint.runtime": "node",
+  "eslint.validate": ["json", "jsonc", "javascript", "markdown", "typescript"],
+  "javascript.suggestionActions.enabled": false,
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }

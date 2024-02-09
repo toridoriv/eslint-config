@@ -96,7 +96,7 @@ function createIgnoreFiles() {
 
   for (const section of sections) {
     lines.push(
-      `💬 ${section.title}`,
+      `# 💬 ${section.title}`,
       ...section.paths.toSorted(sortAlphabetically),
       separator,
     );

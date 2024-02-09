@@ -8,5 +8,6 @@ export default [
   ...eslintConfig.typescript,
   ...eslintConfig.jsdoc,
   ...eslintConfig.json,
+  ...eslintConfig.markdown,
   ...eslintConfig.prettier,
 ];

@@ -24,7 +24,6 @@
     "email": "vrodriguezfe@icloud.com"
   },
   "devDependencies": {
-    "@types/node": "^20.11.16",
     "eslint": "^8.56.0"
   },
   "scripts": {
@@ -35,6 +34,7 @@
     "@homer0/prettier-plugin-jsdoc": "^8.0.0",
     "@types/eslint": "^8.56.2",
     "@types/eslint__eslintrc": "^2.1.1",
+    "@types/node": "^20.11.17",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint-config-prettier": "^9.1.0",

@@ -4,8 +4,9 @@ import { createRequire } from "node:module";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import JSONC from "jsonc-simple-parser";
 import vscodeSettings from "../lib/vscode/settings.js";
+import jsconfig from "../lib/vscode/jsconfig.js";
 
-const userPath = process.env.INIT_CWD;
+const userPath = process.env.INIT_CWD || ".";
 const require = createRequire(import.meta.url);
 const libraryPackageJson = require("../package.json");
 const projectPackageJson = JSON.parse(tryReadFile(`${userPath}/package.json`));
@@ -35,8 +36,9 @@ function writeConfigFiles() {
     `export default [...eslintConfig.javascript.node];`,
   ].join("\n");
 
-  writeFileSync(userPath + "/eslint.config.js", eslint, "utf-8");
-  writeFileSync(userPath + "/prettier.config.js", prettier, "utf-8");
+  writeFileSync(`${userPath}/eslint.config.js`, eslint, "utf-8");
+  writeFileSync(`${userPath}/prettier.config.js`, prettier, "utf-8");
+  writeFileSync(`${userPath}/jsconfig.json`, JSONC.stringify(jsconfig, null, 2), "utf-8");
 }
 
 /**
@@ -66,14 +68,14 @@ function updateVscodeSettings() {
 }
 
 /**
- * Creates ignore files (`.gitignore`, `.eslintignore`, `.prettierignore`)
- * by merging the ignore config from the library and project package.json files.
+ * Creates ignore file (`.gitignore`) by merging the ignore config from the library and
+ * project `package.json` files.
  *
  * - The config contains titled sections with array paths.
  * - The sections are sorted alphabetically by title.
  * - The paths within each section are sorted alphabetically.
  * - The sorted sections and paths are joined into file content.
- * - The content is written to the ignore files.
+ * - The content is written to the ignore file.
  */
 function createIgnoreFiles() {
   /**
@@ -110,13 +112,12 @@ function createIgnoreFiles() {
   const content = lines.join("\n");
 
   writeFileSync(`${userPath}/.gitignore`, content, "utf-8");
-  writeFileSync(`${userPath}/.prettierignore`, content, "utf-8");
 }
 
 /**
  * Simple object check.
  *
- * @param   item
+ * @param   {any}     item
  * @returns {boolean}
  */
 function isObject(item) {
@@ -126,8 +127,8 @@ function isObject(item) {
 /**
  * Deep merge two objects.
  *
- * @param target
- * @param {Object[]} sources
+ * @param {any}   target
+ * @param {any[]} sources
  */
 function mergeDeep(target, ...sources) {
   if (!sources.length) return target;

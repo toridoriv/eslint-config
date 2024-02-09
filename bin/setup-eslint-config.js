@@ -22,9 +22,9 @@ updateVscodeSettings();
  */
 function writeConfigFiles() {
   const prettier = [
-    `import { prettierOptions } from "@toridoriv/eslint-config";`,
+    `import { prettierConfig } from "@toridoriv/eslint-config";`,
     separator,
-    `export default prettierOptions;`,
+    `export default prettierConfig;`,
   ].join("\n");
   const eslint = [
     `import { eslintConfig } from "@toridoriv/eslint-config";`,

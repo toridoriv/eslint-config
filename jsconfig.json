@@ -28,7 +28,7 @@
     "suppressExcessPropertyErrors": true,
     "target": "esnext",
     "typeRoots": ["./node_modules/@types/"],
-    "types": ["node"],
+    "types": ["node", "eslint"],
     "useUnknownInCatchVariables": true,
   },
   "exclude": ["node_modules"],

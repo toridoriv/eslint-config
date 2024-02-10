@@ -5,8 +5,8 @@ import eslintConfig from "./lib/eslint/index.js";
  */
 export default [
   ...eslintConfig.javascript.node,
-  ...eslintConfig.typescript,
   ...eslintConfig.jsdoc,
+  ...eslintConfig.typescript,
   ...eslintConfig.json,
   ...eslintConfig.markdown,
   ...eslintConfig.prettier,

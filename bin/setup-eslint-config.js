@@ -36,7 +36,14 @@ function writeConfigFiles() {
     `/**`,
     ` * @type {import("eslint").Linter.FlatConfig[]}`,
     ` */`,
-    `export default [...eslintConfig.javascript.node];`,
+    `export default [
+  ...eslintConfig.javascript.node,
+  ...eslintConfig.typescript,
+  ...eslintConfig.jsdoc,
+  ...eslintConfig.json,
+  ...eslintConfig.markdown,
+  ...eslintConfig.prettier,
+];`,
   ].join("\n");
 
   writeFileSync(`${userPath}/eslint.config.js`, eslint, "utf-8");
@@ -82,7 +89,7 @@ function updateVscodeSettings() {
  */
 function createIgnoreFiles() {
   /**
-   * @typedef  {Object}   Section
+   * @typedef {Object} Section
    * @property {string}   title
    * @property {string[]} paths
    */
@@ -120,7 +127,7 @@ function createIgnoreFiles() {
 /**
  * Simple object check.
  *
- * @param   {any}     item
+ * @param {any} item
  * @returns {boolean}
  */
 function isObject(item) {
@@ -152,8 +159,8 @@ function mergeDeep(target, ...sources) {
 }
 
 /**
- * @param   {string} a
- * @param   {string} b
+ * @param {string} a
+ * @param {string} b
  * @returns {number}
  */
 function sortAlphabetically(a, b) {

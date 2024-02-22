@@ -1,5 +1,7 @@
 import eslintConfig from "./lib/eslint/index.js";
 
+eslintConfig.javascript.node[1]?.files?.push("bin/setup-eslint-config");
+
 /**
  * @type {import("eslint").Linter.FlatConfig[]}
  */

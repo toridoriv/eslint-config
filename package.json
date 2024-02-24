@@ -28,7 +28,7 @@
   },
   "scripts": {},
   "dependencies": {
-    "@homer0/prettier-plugin-jsdoc": "^8.0.0",
+    "@toridoriv/prettier-plugin-jsdoc": "github:toridoriv/prettier-plugin-jsdoc",
     "@types/eslint": "^8.56.3",
     "@types/eslint__eslintrc": "^2.1.1",
     "@types/node": "^20.11.20",

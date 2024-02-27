@@ -37,7 +37,7 @@ function writeConfigFiles() {
     ` * @type {import("eslint").Linter.FlatConfig[]}`,
     ` */`,
     `export default [
-  ....eslintConfig.ignorePatterns,
+  ...eslintConfig.ignorePatterns,
   ...eslintConfig.javascript.node,
   ...eslintConfig.typescript,
   ...eslintConfig.jsdoc,

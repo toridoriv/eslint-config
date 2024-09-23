@@ -31,19 +31,19 @@
     "@toridoriv/prettier-plugin-jsdoc": "github:toridoriv/prettier-plugin-jsdoc",
     "@types/eslint": "^8.56.3",
     "@types/eslint__eslintrc": "^2.1.1",
-    "@types/node": "^20.11.20",
+    "@types/node": "^22.5.5",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-jsdoc": "^48.2.0",
+    "eslint-plugin-jsdoc": "^50.2.4",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-simple-import-sort": "^12.0.0",
-    "globals": "^14.0.0",
+    "globals": "^15.9.0",
     "jsonc-eslint-parser": "^2.4.0",
     "jsonc-simple-parser": "^3.0.0",
     "markdown-eslint-parser": "^1.2.1",
     "prettier": "3.2.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.2"
   },
   "config": {
     "@toridoriv": {
@@ -63,7 +63,7 @@
           },
           "temporal": {
             "title": "Temporary",
-            "paths": ["tmp", ".tmp", "tmp.*", "var/tmp"]
+            "paths": ["tmp/", "*.tmp", "tmp.*", "var/tmp"]
           }
         }
       }

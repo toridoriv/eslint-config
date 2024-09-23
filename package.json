@@ -4,6 +4,9 @@
   "type": "module",
   "description": "A custom Eslint configuration for my personal projects.",
   "main": "index.js",
+  "bin": {
+    "setup-eslint-config": "./bin/setup-eslint-config"
+  },
   "files": ["bin", "lib", "index.js"],
   "author": {
     "name": "Victoria Rodriguez",

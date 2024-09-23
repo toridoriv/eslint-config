@@ -25,7 +25,6 @@
     "strictFunctionTypes": false,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "suppressExcessPropertyErrors": true,
     "target": "esnext",
     "typeRoots": ["./node_modules/@types/"],
     "types": ["node", "eslint"],

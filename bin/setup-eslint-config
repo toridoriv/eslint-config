@@ -4,7 +4,9 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 
 import JSONC from "jsonc-simple-parser";
+import prettier from "prettier";
 
+import prettierConfig from "../lib/prettier/index.js";
 import jsconfig from "../lib/vscode/jsconfig.js";
 import vscodeSettings from "../lib/vscode/settings.js";
 
@@ -24,20 +26,30 @@ updateVscodeSettings();
 /**
  * Writes the ESLint and Prettier config files for the project.
  */
-function writeConfigFiles() {
-  const prettier = [
-    `import { prettierConfig } from "@toridoriv/eslint-config";`,
-    separator,
-    `export default prettierConfig;`,
-  ].join("\n");
-  const eslint = [
-    `import { eslintConfig } from "@toridoriv/eslint-config";`,
-    separator,
-    `/**`,
-    ` * @type {import("eslint").Linter.FlatConfig[]}`,
-    ` */`,
-    `export default [
-  ...eslintConfig.ignorePatterns,
+async function writeConfigFiles() {
+  const prettierConfigFile = await prettier.format(
+    [
+      `import { prettierConfig } from "@toridoriv/eslint-config";`,
+      separator,
+      `export default prettierConfig;`,
+    ].join("\n"),
+    prettierConfig,
+  );
+  const ignorePatterns = {
+    ignores: Object.values(libraryPackageJson.config["@toridoriv"].files.ignore).reduce(
+      (acc, { paths }) => [...acc, ...paths],
+      [],
+    ),
+  };
+  const eslint = await prettier.format(
+    [
+      `import { eslintConfig } from "@toridoriv/eslint-config";`,
+      separator,
+      `/**`,
+      ` * @type {import("eslint").Linter.FlatConfig[]}`,
+      ` */`,
+      `export default [
+  ${JSON.stringify(ignorePatterns, null, 2)},
   ...eslintConfig.javascript.node,
   ...eslintConfig.typescript,
   ...eslintConfig.jsdoc,
@@ -45,10 +57,12 @@ function writeConfigFiles() {
   ...eslintConfig.markdown,
   ...eslintConfig.prettier,
 ];`,
-  ].join("\n");
+    ].join("\n"),
+    prettierConfig,
+  );
 
   writeFileSync(`${userPath}/eslint.config.js`, eslint, "utf-8");
-  writeFileSync(`${userPath}/prettier.config.js`, prettier, "utf-8");
+  writeFileSync(`${userPath}/prettier.config.js`, prettierConfigFile, "utf-8");
   writeFileSync(`${userPath}/jsconfig.json`, JSONC.stringify(jsconfig, null, 2), "utf-8");
 }
 

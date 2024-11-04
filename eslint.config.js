@@ -1,9 +1,9 @@
 import eslintConfig from "./lib/eslint/index.js";
 
-eslintConfig.javascript.node[1]?.files?.push("bin/setup-eslint-config");
+// eslintConfig.javascript.node[1]?.files?.push("bin/setup-eslint-config");
 
 /**
- * @type {import("eslint").Linter.FlatConfig[]}
+ * @type {import("eslint").Linter.Config[]}
  */
 export default [
   {
@@ -24,9 +24,9 @@ export default [
     ],
   },
   ...eslintConfig.javascript.node,
-  ...eslintConfig.typescript,
+  eslintConfig.typescript,
   ...eslintConfig.jsdoc,
   ...eslintConfig.json,
   ...eslintConfig.markdown,
-  ...eslintConfig.prettier,
+  eslintConfig.prettier,
 ];

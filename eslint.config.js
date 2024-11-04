@@ -1,7 +1,5 @@
 import eslintConfig from "./lib/eslint/index.js";
 
-// eslintConfig.javascript.node[1]?.files?.push("bin/setup-eslint-config");
-
 /**
  * @type {import("eslint").Linter.Config[]}
  */
@@ -21,6 +19,7 @@ export default [
       "*.tmp",
       "tmp.*",
       "var/tmp",
+      "bin/setup-eslint-config",
     ],
   },
   ...eslintConfig.javascript.node,

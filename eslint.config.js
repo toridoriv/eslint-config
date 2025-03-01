@@ -8,7 +8,7 @@ export default [
     ignores: [
       "DS_Store",
       "node_modules",
-      "package-lock.json",
+      "package*.json",
       "coverage",
       "!bin/**",
       "!.vscode/**",

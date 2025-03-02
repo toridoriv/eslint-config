@@ -7,7 +7,11 @@
   "bin": {
     "setup-eslint-config": "./bin/setup-eslint-config"
   },
-  "files": ["bin", "lib", "index.js"],
+  "files": [
+    "bin",
+    "lib",
+    "index.js"
+  ],
   "author": {
     "name": "Victoria Rodriguez",
     "email": "vrodriguezfe@icloud.com",
@@ -27,33 +31,27 @@
     "email": "vrodriguezfe@icloud.com"
   },
   "devDependencies": {
-    "eslint": "^9.16.0"
+    "eslint": "^9.22.0"
   },
   "scripts": {},
   "dependencies": {
-    "@html-eslint/parser": "^0.30.0",
+    "@html-eslint/parser": "^0.35.2",
     "@toridoriv/prettier-plugin-jsdoc": "github:toridoriv/prettier-plugin-jsdoc",
     "@types/eslint": "^9.6.1",
-    "@types/eslint__eslintrc": "^2.1.2",
-    "@types/node": "^22.10.1",
-    "@typescript-eslint/eslint-plugin": "^8.17.0",
-    "@typescript-eslint/parser": "^8.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-jsdoc": "^50.6.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-jsdoc": "^50.6.6",
+    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "globals": "^15.13.0",
+    "globals": "^16.0.0",
     "jsonc-eslint-parser": "^2.4.0",
     "jsonc-simple-parser": "^3.0.0",
     "markdown-eslint-parser": "^1.2.1",
-    "prettier": "3.4.1",
+    "prettier": "3.5.3",
     "prettier-plugin-css-order": "^2.1.2",
-    "typescript": "^5.7.2"
-  },
-  "overrides": {
-    "markdown-eslint-parser": {
-      "eslint": "^9.16.0"
-    }
+    "typescript": "^5.8.2"
   },
   "config": {
     "@toridoriv": {
@@ -61,19 +59,36 @@
         "ignore": {
           "generated": {
             "title": "Automatically generated",
-            "paths": ["DS_Store", "node_modules", "package-lock.json", "coverage"]
+            "paths": [
+              "DS_Store",
+              "node_modules",
+              "package-lock.json",
+              "coverage"
+            ]
           },
           "exceptions": {
             "title": "Do not ignore",
-            "paths": ["!bin/**", "!.vscode/**"]
+            "paths": [
+              "!bin/**",
+              "!.vscode/**"
+            ]
           },
           "logs": {
             "title": "Logs",
-            "paths": ["logs", "*.log", "npm-debug.log*"]
+            "paths": [
+              "logs",
+              "*.log",
+              "npm-debug.log*"
+            ]
           },
           "temporal": {
             "title": "Temporary",
-            "paths": ["tmp/", "*.tmp", "tmp.*", "var/tmp"]
+            "paths": [
+              "tmp/",
+              "*.tmp",
+              "tmp.*",
+              "var/tmp"
+            ]
           }
         }
       }

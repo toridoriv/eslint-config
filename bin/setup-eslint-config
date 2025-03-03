@@ -37,7 +37,7 @@ import { eslintConfig } from "@toridoriv/eslint-config";
  */
 export default [
   // Add your own ignore patterns here.
-  eslintConfig.ignorePatterns("package-lock.json"),
+  eslintConfig.ignorePatterns("package*.json"),
   ...eslintConfig.javascript.node,
   eslintConfig.typescript,
   eslintConfig.prettier,

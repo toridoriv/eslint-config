@@ -30,16 +30,39 @@ import { eslintConfig } from "@toridoriv/eslint-config";
  */
 
 /**
- * Add here any Eslint configuration that you want to use in your project. You can
- * import it from the eslint-config library or create your own.
+ * Add or delete any Eslint configuration that you want (or not) to use in your
+ * project. You can import it from the eslint-config library or create your own.
  * 
  * @type {Linter.Config[]}
  */
 export default [
-  // Add your own ignore patterns here.
-  eslintConfig.ignorePatterns("package*.json"),
+  {
+    ignores: [
+      "DS_Store",
+      "node_modules",
+      "package*.json",
+      "coverage",
+      "!bin/**",
+      "!.vscode/**",
+      "logs",
+      "*.log",
+      "npm-debug.log*",
+      "tmp/",
+      "*.tmp",
+      "tmp.*",
+      "var/tmp",
+      "bin/setup-eslint-config",
+    ],
+  },
   ...eslintConfig.javascript.node,
+  eslintConfig.javascript.appleScript,
+  ...eslintConfig.javascript.browser,
   eslintConfig.typescript,
+  ...eslintConfig.jsdoc,
+  ...eslintConfig.json,
+  eslintConfig.markup.markdown,
+  eslintConfig.markup.css,
+  eslintConfig.markup.html,
   eslintConfig.prettier,
 ];
 `;

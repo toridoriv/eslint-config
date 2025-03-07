@@ -31,7 +31,8 @@
     "email": "vrodriguezfe@icloud.com"
   },
   "devDependencies": {
-    "eslint": "^9.22.0"
+    "eslint": "^9.22.0",
+    "type-fest": "^4.37.0"
   },
   "scripts": {},
   "dependencies": {

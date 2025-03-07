@@ -7,8 +7,9 @@ import JSONC from "jsonc-simple-parser";
 import prettier from "prettier";
 
 import prettierConfig from "../lib/prettier/index.js";
-import jsconfig from "../lib/vscode/jsconfig.js";
+import tsconfig from "../lib/vscode/tsconfig.js";
 import vscodeSettings from "../lib/vscode/settings.js";
+import { isObject } from "../lib/utils.js";
 
 const userPath = process.env.INIT_CWD || ".";
 const require = createRequire(import.meta.url);
@@ -88,7 +89,7 @@ async function writeConfigFiles() {
 
   writeFileSync(`${userPath}/eslint.config.js`, eslint, "utf-8");
   writeFileSync(`${userPath}/prettier.config.js`, prettierConfigFile, "utf-8");
-  writeFileSync(`${userPath}/jsconfig.json`, JSONC.stringify(jsconfig, null, 2), "utf-8");
+  writeFileSync(`${userPath}/tsconfig.json`, JSONC.stringify(tsconfig, null, 2), "utf-8");
 }
 
 /**
@@ -162,16 +163,6 @@ function createIgnoreFiles() {
   const content = lines.join("\n");
 
   writeFileSync(`${userPath}/.gitignore`, content, "utf-8");
-}
-
-/**
- * Simple object check.
- *
- * @param {any} item
- * @returns {boolean}
- */
-function isObject(item) {
-  return item && typeof item === "object" && !Array.isArray(item);
 }
 
 /**

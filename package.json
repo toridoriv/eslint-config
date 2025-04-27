@@ -4,13 +4,15 @@
   "type": "module",
   "description": "A custom Eslint configuration for my personal projects.",
   "main": "index.js",
+  "typings": "typings.d.ts",
   "bin": {
     "setup-eslint-config": "./bin/setup-eslint-config"
   },
   "files": [
     "bin",
     "lib",
-    "index.js"
+    "index.js",
+    "typings.d.ts"
   ],
   "author": {
     "name": "Victoria Rodriguez",

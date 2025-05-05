@@ -37,5 +37,10 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   "files.associations": {
     "setup-eslint-config": "javascript"
-  }
+  },
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use Gitmoji commit message format."
+    }
+  ]
 }

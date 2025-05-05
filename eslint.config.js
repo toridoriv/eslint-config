@@ -25,7 +25,8 @@ export default [
   ...eslintConfig.javascript.node,
   eslintConfig.typescript,
   ...eslintConfig.jsdoc,
-  ...eslintConfig.json,
-  ...eslintConfig.markdown,
+  eslintConfig.serialization.json,
+  eslintConfig.serialization.jsonc,
+  eslintConfig.markup.markdown,
   eslintConfig.prettier,
 ];

@@ -26,6 +26,12 @@ export default prettierConfig;
 const ESLINT_CONFIG_FILE = `
 import { eslintConfig } from "@toridoriv/eslint-config";
 
+// Use this to set a single rule for TypeScript files.
+// eslintConfig.setTypescriptRule("rule", ["off", {}])
+
+// Use this to set a rules for JavaScript modules.
+// eslintConfig.javascript.setJavascriptModuleRules("rule", ["off", {}]);
+
 /**
  * @import {Linter} from "eslint"
  */
@@ -37,31 +43,31 @@ import { eslintConfig } from "@toridoriv/eslint-config";
  * @type {Linter.Config[]}
  */
 export default [
-  {
-    ignores: [
-      "DS_Store",
-      "node_modules",
-      "package*.json",
-      "coverage",
-      "!bin/**",
-      "!.vscode/**",
-      "logs",
-      "*.log",
-      "npm-debug.log*",
-      "tmp/",
-      "*.tmp",
-      "tmp.*",
-      "var/tmp",
-      "bin/setup-eslint-config",
-    ],
-  },
+  eslintConfig.ignorePatterns(
+    "DS_Store",
+    "node_modules",
+    "package*.json",
+    "coverage",
+    "!bin/**",
+    "!.vscode/**",
+    "logs",
+    "*.log",
+    "npm-debug.log*",
+    "tmp/",
+    "*.tmp",
+    "tmp.*",
+    "var/tmp",
+    "bin/setup-eslint-config",
+  ),
   ...eslintConfig.javascript.node,
   // eslintConfig.javascript.appleScript,
   // ...eslintConfig.javascript.browser,
   eslintConfig.typescript,
   ...eslintConfig.jsdoc,
-  ...eslintConfig.json,
+  eslintConfig.serialization.json,
+  eslintConfig.serialization.jsonc,
   eslintConfig.markup.markdown,
+  eslintConfig.markup.markdownWithPrettier,
   eslintConfig.markup.css,
   eslintConfig.markup.html,
   eslintConfig.prettier,

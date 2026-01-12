@@ -39,7 +39,7 @@
   "scripts": {},
   "dependencies": {
     "@eslint/eslintrc": "^3.3.3",
-    "@html-eslint/parser": "^0.35.2",
+    "@html-eslint/parser": "^0.52.0",
     "@toridoriv/prettier-plugin-jsdoc": "github:toridoriv/prettier-plugin-jsdoc",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.13.10",

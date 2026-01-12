@@ -33,6 +33,7 @@
     "email": "vrodriguezfe@icloud.com"
   },
   "devDependencies": {
+    "@types/node": "^24.10.7",
     "eslint": "^9.26.0",
     "type-fest": "^4.40.1"
   },
@@ -42,7 +43,6 @@
     "@html-eslint/parser": "^0.52.0",
     "@toridoriv/prettier-plugin-jsdoc": "github:toridoriv/prettier-plugin-jsdoc",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^22.13.10",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "eslint-config-prettier": "^10.1.1",

@@ -57,6 +57,9 @@
     "prettier-plugin-css-order": "^2.1.2",
     "typescript": "^5.8.2"
   },
+  "peerDependencies": {
+    "eslint": ">=9"
+  },
   "config": {
     "@toridoriv": {
       "files": {

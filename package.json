@@ -33,9 +33,15 @@
     "email": "vrodriguezfe@icloud.com"
   },
   "devDependencies": {
+    "@types/chai": "^5.2.3",
     "@types/node": "^24.10.7",
+    "@vitest/coverage-v8": "^4.0.17",
+    "@vitest/ui": "^4.0.17",
+    "chai": "^6.2.2",
     "eslint": "^9.39.2",
-    "type-fest": "^4.40.1"
+    "type-fest": "^4.40.1",
+    "vitest": "^4.0.17",
+    "vitest-sonar-reporter": "^3.0.0"
   },
   "scripts": {},
   "dependencies": {

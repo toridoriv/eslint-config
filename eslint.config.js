@@ -1,3 +1,4 @@
+import ignore from "./lib/eslint/ignore-patterns.js";
 import eslintConfig from "./lib/eslint/index.js";
 
 /**
@@ -5,7 +6,7 @@ import eslintConfig from "./lib/eslint/index.js";
  */
 export default [
   {
-    ignores: [
+    ...ignore(
       "DS_Store",
       "node_modules",
       "package*.json",
@@ -20,7 +21,7 @@ export default [
       "tmp.*",
       "var/tmp",
       "bin/setup-eslint-config",
-    ],
+    ),
   },
   ...eslintConfig.javascript.node,
   eslintConfig.typescript,

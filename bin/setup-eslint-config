@@ -67,7 +67,8 @@ export default [
   eslintConfig.serialization.json,
   eslintConfig.serialization.jsonc,
   eslintConfig.markup.markdown,
-  eslintConfig.markup.markdownWithPrettier,
+  // Uncomment the following line to enable formatting for Markdown files with Prettier.
+  // eslintConfig.markup.markdownWithPrettier,
   eslintConfig.markup.css,
   eslintConfig.markup.html,
   eslintConfig.prettier,

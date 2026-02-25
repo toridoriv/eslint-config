@@ -2,11 +2,11 @@
 coverage
 DS_Store
 node_modules
-package-lock.json
 
 # 💬 Do not ignore
 !.vscode/**
 !bin/**
+!package-lock.json
 
 # 💬 Logs
 *.log
